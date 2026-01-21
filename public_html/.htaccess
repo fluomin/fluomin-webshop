@@ -1,0 +1,7 @@
+# Hoststar: Fonts + Performance
+<FilesMatch "\.(otf|woff|woff2|webmanifest)$">
+  Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
+
+AddType application/font-sfnt .otf
+AddType application/manifest+json .webmanifest

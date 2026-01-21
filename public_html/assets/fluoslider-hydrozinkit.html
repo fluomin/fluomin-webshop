@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Hydrozinkit Juxta</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #000;
+    }
+
+    .juxta {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .juxta-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .juxta-before {
+      clip-path: inset(0 50% 0 0);
+    }
+
+    .juxta-after {
+      clip-path: inset(0 0 0 50%);
+    }
+
+    .juxta-bar {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 4px;
+      height: 100%;
+      background: #fff;
+      transform: translateX(-50%);
+      z-index: 5;
+      cursor: ew-resize;
+    }
+
+    .juxta-handle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      z-index: 6;
+      cursor: ew-resize;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="juxta">
+    <img src="../images/shopimg/hydrozinkit1.jpeg" class="juxta-img juxta-before" alt="Hydrozinkit normal">
+    <img src="../images/shopimg/hydrozinkit2.jpeg" class="juxta-img juxta-after" alt="Hydrozinkit UV">
+    <div class="juxta-bar"></div>
+    <div class="juxta-handle">⇆</div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const juxta   = document.querySelector('.juxta');
+      const before  = document.querySelector('.juxta-before');
+      const after   = document.querySelector('.juxta-after');
+      const bar     = document.querySelector('.juxta-bar');
+      const handle  = document.querySelector('.juxta-handle');
+
+      let down = false;
+
+      function setPos(clientX) {
+        const rect = juxta.getBoundingClientRect();
+        let x = clientX - rect.left;
+        x = Math.max(0, Math.min(rect.width, x));
+        const p = x / rect.width * 100;
+        bar.style.left    = p + '%';
+        handle.style.left = p + '%';
+        before.style.clipPath = `inset(0 ${100 - p}% 0 0)`;
+        after.style.clipPath  = `inset(0 0 0 ${p}%)`;
+      }
+
+      function start(e) {
+        down = true;
+        setPos(e.clientX || (e.touches && e.touches[0].clientX));
+      }
+      function move(e) {
+        if (!down) return;
+        setPos(e.clientX || (e.touches && e.touches[0].clientX));
+      }
+      function end() { down = false; }
+
+      bar.addEventListener('mousedown', start);
+      handle.addEventListener('mousedown', start);
+      juxta.addEventListener('click', start);
+      window.addEventListener('mousemove', move);
+      window.addEventListener('mouseup', end);
+
+      bar.addEventListener('touchstart', start, {passive:false});
+      handle.addEventListener('touchstart', start, {passive:false});
+      window.addEventListener('touchmove', move, {passive:false});
+      window.addEventListener('touchend', end);
+    });
+  </script>
+</body>
+</html>
