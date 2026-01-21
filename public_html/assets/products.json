@@ -2,6 +2,7 @@
   {
     "id": "0001",
     "label": "Adamin",
+          "section": "lw",
     "slides": [
       {"before": "shopimg/adamin.jpg", "after": "shopimg/adaminuv.jpg"},
       {"before": "shopimg/adamin2.jpg", "after": "shopimg/adamin2uv.jpg"},
@@ -18,6 +19,7 @@
   {
     "id": "0002",
     "label": "Calcit",
+          "section": "lw",
     "slides": [
       {"before": "shopimg/calcitsphalerit.jpg", "after": "shopimg/calcitsphalerituv.jpg"},
       {"before": "shopimg/calcitsphalerit2.jpg", "after": "shopimg/calcitsphalerit2uv.jpeg"},
@@ -34,6 +36,7 @@
   {
     "id": "0003",
     "label": "Wernerit / Rubin",
+          "section": "lw",
     "slides": [
       {"before": "shopimg/rubinwernerit.jpg", "after": "shopimg/rubinwernerituv.jpg"},
       {"before": "shopimg/rubinwernerit2.jpg", "after": "shopimg/rubinwernerit2uv.jpg"}
@@ -49,6 +52,7 @@
   {
     "id": "0004",
     "label": "Fluorit mit Quarz",
+          "section": "lw",
     "slides": [
       {"before": "shopimg/fluoritquarz.jpg", "after": "shopimg/fluoritquarzuv.jpg"},
       {"before": "shopimg/fluoritquarz2.jpg", "after": "shopimg/fluoritquarz2uv.jpg"},
@@ -65,6 +69,7 @@
   {
     "id": "0005",
     "label": "Pyrit mit Limonit",
+          "section": "lw",
     "slides": [
       {"before": "shopimg/pyrit.jpg", "after": "shopimg/pyrituv.jpg"},
       {"before": "shopimg/pyrit2.jpg", "after": "shopimg/pyrit2uv.jpg"},
@@ -81,6 +86,7 @@
   {
     "id": "0006",
     "label": "Calcit auf Amethyst",
+          "section": "lw",
     "slides": [
       {"before": "shopimg/amethyst.jpg", "after": "shopimg/amethystuv.jpg"},
       {"before": "shopimg/amethyst2.jpg", "after": "shopimg/amethyst2uv.jpg"},
@@ -96,6 +102,7 @@
     {
     "id": "0007",
     "label": "Calcit Fluorit",
+            "section": "lw",
     "slides": [
       {"before": "shopimg/calcitfluorit.jpg", "after": "shopimg/calcitfluorituv.jpg"},
       {"before": "shopimg/calcitfluorit2.jpg", "after": "shopimg/calcitfluorit2uv.jpg"},
@@ -113,6 +120,7 @@
     {
     "id": "0008",
     "label": "Adamin zweifarbig",
+            "section": "lw",
     "slides": [
       {"before": "shopimg/adaminweissgruen.jpg", "after": "shopimg/adaminweissgruenuv.jpg"},
       {"before": "shopimg/adaminweissgruen2.jpg", "after": "shopimg/adaminweissgruen2uv.jpg"}
@@ -128,13 +136,14 @@
     {
     "id": "0009",
     "label": "Fluorit Petroleum",
+           "section": "private",
     "slides": [
       {"before": "shopimg/fluoritpetroleum.jpg", "after": "shopimg/fluoritpetroleumuv.jpg"},
       {"before": "shopimg/fluoritpetroleum2.jpg", "after": "shopimg/fluoritpetroleum2uv.jpg"},
       {"before": "shopimg/fluoritpetroleum3.jpg", "after": "shopimg/fluoritpetroleum3uv.jpg"},
 
     ],
-    "price": "CHF 395.-",
+    "price": "Not for Sale",
     "minerals": "Fluorit mit Petroleum Inklusionen",
     "fundort": "China",
     "groesse": "4.5 cm x 3 cm x 2 cm",
@@ -145,6 +154,7 @@
     {
     "id": "0010",
     "label": "Fluorit auf Wolframit",
+            "section": "lw",
     "slides": [
       {"before": "shopimg/fluoritwolframit.jpg", "after": "shopimg/fluoritwolframituv.jpg"},
       {"before": "shopimg/fluoritwolframit2.jpg", "after": "shopimg/fluoritwolframit2uv.jpg"},
@@ -162,6 +172,7 @@
     {
     "id": "0011",
     "label": "Troostit mit Sphalerit",
+            "section": "private",
     "slides": [
       {"before": "shopimg/troostit.jpg", "after": "shopimg/troostituv.jpg"},
       {"before": "shopimg/troostit2.jpg", "after": "shopimg/troostit2uv.jpg"},
@@ -179,6 +190,7 @@
     {
     "id": "0012",
     "label": "Morganit",
+            "section": "lw",
     "slides": [
       {"before": "shopimg/morganit.jpg", "after": "shopimg/morganituv.jpg"},
       {"before": "shopimg/morganit2.jpg", "after": "shopimg/morganit2uv.jpg"},
