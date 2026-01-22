@@ -1,8 +1,9 @@
-// ALLE Produkte direkt eingebettet (funktioniert lokal ohne fetch)
-const products = [
+// ✅ 1. ALLE DEINE 12 PRODUKTE (KEIN CORS, KEIN FETCH)
+const allProducts = [
   {
     "id": "0001",
     "label": "Adamin",
+    "section": "lw",
     "slides": [
       {"before": "shopimg/adamin.jpg", "after": "shopimg/adaminuv.jpg"},
       {"before": "shopimg/adamin2.jpg", "after": "shopimg/adamin2uv.jpg"},
@@ -19,10 +20,11 @@ const products = [
   {
     "id": "0002",
     "label": "Calcit",
+    "section": "lw",
     "slides": [
       {"before": "shopimg/calcitsphalerit.jpg", "after": "shopimg/calcitsphalerituv.jpg"},
       {"before": "shopimg/calcitsphalerit2.jpg", "after": "shopimg/calcitsphalerit2uv.jpeg"},
-     {"before": "shopimg/calcitsphalerit3.jpg", "after": "shopimg/calcitsphalerit3uv.jpg"}
+      {"before": "shopimg/calcitsphalerit3.jpg", "after": "shopimg/calcitsphalerit3uv.jpg"}
     ],
     "price": "CHF 115.-",
     "minerals": "Calcit, Sphalerit",
@@ -35,6 +37,7 @@ const products = [
   {
     "id": "0003",
     "label": "Wernerit / Rubin",
+    "section": "lw",
     "slides": [
       {"before": "shopimg/rubinwernerit.jpg", "after": "shopimg/rubinwernerituv.jpg"},
       {"before": "shopimg/rubinwernerit2.jpg", "after": "shopimg/rubinwernerit2uv.jpg"}
@@ -50,6 +53,7 @@ const products = [
   {
     "id": "0004",
     "label": "Fluorit mit Quarz",
+    "section": "lw",
     "slides": [
       {"before": "shopimg/fluoritquarz.jpg", "after": "shopimg/fluoritquarzuv.jpg"},
       {"before": "shopimg/fluoritquarz2.jpg", "after": "shopimg/fluoritquarz2uv.jpg"},
@@ -66,6 +70,7 @@ const products = [
   {
     "id": "0005",
     "label": "Pyrit mit Limonit",
+    "section": "lw",
     "slides": [
       {"before": "shopimg/pyrit.jpg", "after": "shopimg/pyrituv.jpg"},
       {"before": "shopimg/pyrit2.jpg", "after": "shopimg/pyrit2uv.jpg"},
@@ -82,27 +87,28 @@ const products = [
   {
     "id": "0006",
     "label": "Calcit auf Amethyst",
+    "section": "lw",
     "slides": [
       {"before": "shopimg/amethyst.jpg", "after": "shopimg/amethystuv.jpg"},
-      {"before": "shopimg/amethyst2.jpg", "after": "shopimg/amethyst2uv.jpg"},
-
+      {"before": "shopimg/amethyst2.jpg", "after": "shopimg/amethyst2uv.jpg"}
     ],
-    "price": "CHF 325.-",
+    "price": "CHF 275.-",
     "minerals": "Calcit auf Amethystrose",
     "fundort": "Rio Grande do Sul, Brasilien",
     "groesse": "11 cm x 10 cm x 3.5 cm",
-    "gewicht": "1227 g",
+    "gewicht": "122 g",
     "fluoreszenz": "365 nm",
     "large": "assets/fluoslider-0006-large.html"
   },
-    {
+  {
     "id": "0007",
     "label": "Calcit Fluorit",
+    "section": "lw",
     "slides": [
       {"before": "shopimg/calcitfluorit.jpg", "after": "shopimg/calcitfluorituv.jpg"},
       {"before": "shopimg/calcitfluorit2.jpg", "after": "shopimg/calcitfluorit2uv.jpg"},
       {"before": "shopimg/calcitfluorit3.jpg", "after": "shopimg/calcitfluorit3uv.jpg"},
-        {"before": "shopimg/calcitfluorit4.jpg", "after": "shopimg/calcitfluorit4uv.jpg"}
+      {"before": "shopimg/calcitfluorit4.jpg", "after": "shopimg/calcitfluorit4uv.jpg"}
     ],
     "price": "CHF 365.-",
     "minerals": "Calcit mit Fluorit",
@@ -112,9 +118,10 @@ const products = [
     "fluoreszenz": "365 nm",
     "large": "assets/fluoslider-0007-large.html"
   },
-    {
+  {
     "id": "0008",
     "label": "Adamin zweifarbig",
+    "section": "lw",
     "slides": [
       {"before": "shopimg/adaminweissgruen.jpg", "after": "shopimg/adaminweissgruenuv.jpg"},
       {"before": "shopimg/adaminweissgruen2.jpg", "after": "shopimg/adaminweissgruen2uv.jpg"}
@@ -127,16 +134,16 @@ const products = [
     "fluoreszenz": "365 nm",
     "large": "assets/fluoslider-0008-large.html"
   },
-    {
+  {
     "id": "0009",
     "label": "Fluorit Petroleum",
+    "section": "private",
     "slides": [
       {"before": "shopimg/fluoritpetroleum.jpg", "after": "shopimg/fluoritpetroleumuv.jpg"},
       {"before": "shopimg/fluoritpetroleum2.jpg", "after": "shopimg/fluoritpetroleum2uv.jpg"},
-      {"before": "shopimg/fluoritpetroleum3.jpg", "after": "shopimg/fluoritpetroleum3uv.jpg"},
-
+      {"before": "shopimg/fluoritpetroleum3.jpg", "after": "shopimg/fluoritpetroleum3uv.jpg"}
     ],
-    "price": "CHF 395.-",
+    "price": "Not for Sale",
     "minerals": "Fluorit mit Petroleum Inklusionen",
     "fundort": "China",
     "groesse": "4.5 cm x 3 cm x 2 cm",
@@ -144,14 +151,14 @@ const products = [
     "fluoreszenz": "365 nm",
     "large": "assets/fluoslider-0009-large.html"
   },
-    {
+  {
     "id": "0010",
     "label": "Fluorit auf Wolframit",
+    "section": "lw",
     "slides": [
       {"before": "shopimg/fluoritwolframit.jpg", "after": "shopimg/fluoritwolframituv.jpg"},
       {"before": "shopimg/fluoritwolframit2.jpg", "after": "shopimg/fluoritwolframit2uv.jpg"},
-      {"before": "shopimg/fluoritwolframit3.jpg", "after": "shopimg/fluoritwolframit3uv.jpg"},
-
+      {"before": "shopimg/fluoritwolframit3.jpg", "after": "shopimg/fluoritwolframit3uv.jpg"}
     ],
     "price": "CHF 195.-",
     "minerals": "Fluorit auf Wolframit",
@@ -161,14 +168,14 @@ const products = [
     "fluoreszenz": "365 nm",
     "large": "assets/fluoslider-0010-large.html"
   },
-    {
+  {
     "id": "0011",
     "label": "Troostit mit Sphalerit",
+    "section": "private",
     "slides": [
       {"before": "shopimg/troostit.jpg", "after": "shopimg/troostituv.jpg"},
       {"before": "shopimg/troostit2.jpg", "after": "shopimg/troostit2uv.jpg"},
-      {"before": "shopimg/troostit3.jpg", "after": "shopimg/troostit3uv.jpg"},
-
+      {"before": "shopimg/troostit3.jpg", "after": "shopimg/troostit3uv.jpg"}
     ],
     "price": "Not for Sale",
     "minerals": "Troostit mit Sphalerit",
@@ -177,16 +184,15 @@ const products = [
     "gewicht": "9 g",
     "fluoreszenz": "365 nm",
     "large": "assets/fluoslider-0011-large.html"
-  }
-    ,
-    {
+  },
+  {
     "id": "0012",
     "label": "Morganit",
+    "section": "lw",
     "slides": [
       {"before": "shopimg/morganit.jpg", "after": "shopimg/morganituv.jpg"},
       {"before": "shopimg/morganit2.jpg", "after": "shopimg/morganit2uv.jpg"},
-      {"before": "shopimg/morganit3.jpg", "after": "shopimg/morganit3uv.jpg"},
-
+      {"before": "shopimg/morganit3.jpg", "after": "shopimg/morganit3uv.jpg"}
     ],
     "price": "CHF 390.-",
     "minerals": "Morganit mit Mica",
@@ -198,10 +204,7 @@ const products = [
   }
 ];
 
-
-
-
-
+// 2. createProductCard KOMPLETT
 function createProductCard(product) {
   const productHTML = `
     <div class="col-4 col-6-medium col-12-small product-card">
@@ -230,33 +233,104 @@ function createProductCard(product) {
       </div>
       
       <a href="#" class="shop-btn shop-btn-zoom" data-fluoslider="${product.large}">
-        <i class="fas fa-search-plus" aria-hidden="true"></i>
+        <i class="fas fa-search-plus"></i>
       </a>
       
       <div class="shop-buy-row">
         <a href="mailto:uv@fluomin.ch?subject=Bestellung%20Nr.%20${product.id}&body=Ich%20m%C3%B6chte%20gerne%20das%20Mineral%20${product.label}%20Nr.%20${product.id}%20kaufen" class="shop-btn shop-btn-buy">
-          <i class="fas fa-envelope" aria-hidden="true"></i>
+          <i class="fas fa-envelope"></i>
         </a>
         <a href="https://wa.me/41766172112?text=Ich%20m%C3%B6chte%20gerne%20das%20Mineral%20${product.label}%20Nr.%20${product.id}%20kaufen" class="shop-btn shop-btn-buy" target="_blank">
-          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+          <i class="fab fa-whatsapp"></i>
         </a>
       </div>
     </div>
   `;
-  
-  const shopContainer = document.querySelector('#shop .row');
-  shopContainer.insertAdjacentHTML('beforeend', productHTML);
+  return productHTML;
 }
 
-function loadProducts() {
-  products.forEach(product => {
-    createProductCard(product);
+// 3. displayProducts
+function displayProducts(productsToShow) {
+  const shopContainer = document.querySelector('#shop .row');
+  if (!shopContainer) return;
+  
+  shopContainer.innerHTML = '';
+  productsToShow.forEach(product => {
+    shopContainer.insertAdjacentHTML('beforeend', createProductCard(product));
+  });
+  initProductEvents();
+}
+
+// 4. initProductEvents
+function initProductEvents() {
+  document.querySelectorAll('.product-details-toggle').forEach(btn => {
+    btn.onclick = (e) => {
+      e.preventDefault();
+      const detailsId = `details-${btn.dataset.product}`;
+      const detailsEl = document.getElementById(detailsId);
+      if (detailsEl) detailsEl.classList.toggle('show');
+    };
+  });
+  
+  document.querySelectorAll('.shop-btn-zoom').forEach(btn => {
+    btn.onclick = (e) => {
+      e.preventDefault();
+      if (btn.dataset.fluoslider) {
+        document.getElementById('lightboxFluoslider').src = btn.dataset.fluoslider;
+        document.getElementById('lightbox-shop').classList.add('active');
+      }
+    };
+  });
+  
+  const closeBtn = document.getElementById('closeBtn-shop');
+  if (closeBtn) {
+    closeBtn.onclick = () => {
+      const lightbox = document.getElementById('lightbox-shop');
+      const slider = document.getElementById('lightboxFluoslider');
+      if (lightbox) lightbox.classList.remove('active');
+      if (slider) slider.src = '';
+    };
+  }
+}
+
+// 5. filterProductsBySection
+function filterProductsBySection(section) {
+  let filtered;
+  if (section === 'all') {
+    filtered = allProducts;
+  } else {
+    filtered = allProducts.filter(p => p.section === section);
+  }
+  displayProducts(filtered);
+  updateFilterButtons(section);
+}
+
+// 6. updateFilterButtons
+function updateFilterButtons(activeSection) {
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.section === activeSection);
   });
 }
 
-// Laden wenn DOM bereit
+// 7. initFilterButtons
+function initFilterButtons() {
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      filterProductsBySection(btn.dataset.section);
+    });
+  });
+}
+
+// 8. INITIALISIERUNG
+function initShop() {
+  displayProducts(allProducts);
+  initFilterButtons();
+}
+
+// Start wenn DOM bereit
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', loadProducts);
+  document.addEventListener('DOMContentLoaded', initShop);
 } else {
-  loadProducts();
+  initShop();
 }

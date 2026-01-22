@@ -1,4 +1,4 @@
-// Fluoslider Small - Für 100+ Produkte optimiert
+// Fluoslider Small - MOBILE SCROLL 100% FIX - KEIN e.preventDefault() in Touch!
 (function() {
   'use strict';
 
@@ -42,14 +42,14 @@
     if (!prevBtn) {
       prevBtn = document.createElement('button');
       prevBtn.className = 'fluoslider-small-nav fluoslider-small-prev';
-      prevBtn.innerHTML = '';
+      prevBtn.innerHTML = '‹';
       container.appendChild(prevBtn);
     }
 
     if (!nextBtn) {
       nextBtn = document.createElement('button');
       nextBtn.className = 'fluoslider-small-nav fluoslider-small-next';
-      nextBtn.innerHTML = '';
+      nextBtn.innerHTML = '›';
       container.appendChild(nextBtn);
     }
 
@@ -153,49 +153,59 @@
       afterImg.style.clipPath = `inset(0 0 0 ${p}%)`;
     }
 
+    // ✅ TOUCH HANDLER OHNE BLOCKIERUNG!
     function start(e) {
       down = true;
-      setPos(e.clientX || (e.touches && e.touches[0].clientX));
-      e.preventDefault();
+      const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+      setPos(clientX);
+      // KEIN e.preventDefault() - Page Scroll bleibt frei!
     }
 
     function move(e) {
       if (!down) return;
-      setPos(e.clientX || (e.touches && e.touches[0].clientX));
-      e.preventDefault();
+      const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+      setPos(clientX);
+      // KEIN e.preventDefault() - Page Scroll bleibt frei!
     }
 
     function end() { down = false; }
 
-    // Event Listeners
+    // ✅ Event Listeners - PASSIVE für Touch!
     prevBtn.addEventListener('click', prevSlide);
     nextBtn.addEventListener('click', nextSlide);
 
     prevBtn.addEventListener('touchend', (e) => {
-      e.preventDefault(); e.stopPropagation(); prevSlide();
+      e.preventDefault(); 
+      prevSlide();
     });
     nextBtn.addEventListener('touchend', (e) => {
-      e.preventDefault(); e.stopPropagation(); nextSlide();
+      e.preventDefault(); 
+      nextSlide();
     });
 
-    dots.forEach(dot => {
+    // Dots touch-safe
+    container.querySelectorAll('.fluoslider-small-dot').forEach(dot => {
       dot.addEventListener('touchend', (e) => {
-        e.preventDefault(); e.stopPropagation();
+        e.preventDefault();
       });
     });
 
+    // DESKTOP: Mouse Events (blockieren OK)
     bar.addEventListener('mousedown', start);
     handle.addEventListener('mousedown', start);
     container.addEventListener('click', (e) => {
       if (e.target === container) start(e);
     });
-
     window.addEventListener('mousemove', move);
     window.addEventListener('mouseup', end);
-    container.addEventListener('touchstart', start, { passive: false });
-    window.addEventListener('touchmove', move, { passive: false });
-    window.addEventListener('touchend', end);
 
+    // ✅ MOBILE: PASSIVE Touch Handler (KEIN Blockieren!)
+    container.addEventListener('touchstart', start, { passive: true });
+    container.addEventListener('touchmove', move, { passive: true });
+    container.addEventListener('touchend', end, { passive: true });
+    container.addEventListener('touchcancel', end, { passive: true });
+
+    // Keyboard
     document.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowLeft') prevSlide();
       if (e.key === 'ArrowRight') nextSlide();
