@@ -214,5 +214,14 @@
             
             
 		}
+    
+    document.querySelectorAll('.fluoslider-small').forEach(slider => {
+  slider.addEventListener('pointerenter', () => {
+    slider.style.touchAction = 'none';  // Touch deaktivieren
+  });
+  slider.addEventListener('pointerleave', () => {
+    slider.style.touchAction = 'pan-x'; // Optional
+  });
+});
 
 })(jQuery);

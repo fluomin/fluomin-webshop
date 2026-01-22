@@ -179,3 +179,11 @@ document.addEventListener('click', function(e) {
     return false;
   }
 });
+
+
+document.querySelector('.shop-container').addEventListener('touchmove', function(e) {
+  // Erlaube Scrollen, wenn nicht direkt auf Slider
+  if (!e.target.closest('.fluoslider-small')) {
+    e.stopPropagation();
+  }
+}, { passive: true });
